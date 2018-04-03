@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+
+<launch>
+
+	<node pkg="message_creation" type="DestinationNode.py" output="screen" name ="destination_node" required="true"/>
+
+	<node pkg="message_creation" type="RelayNode.py"  output="screen" name ="relay_node"  required="true"/>
+</launch>
+

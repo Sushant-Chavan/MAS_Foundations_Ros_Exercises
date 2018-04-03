@@ -1,0 +1,3 @@
+sensor_msgs/Image imageData
+geometry_msgs/PoseWithCovarianceStamped pose
+sensor_msgs/LaserScan laserData
