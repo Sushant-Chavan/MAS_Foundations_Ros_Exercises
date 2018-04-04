@@ -19,7 +19,7 @@ class server:
         response.sub = req.num1 - req.num2
         response.mul = req.num1 * req.num2
         response.div = float(req.num1) / req.num2
-        print(response.sum, response.sub, response.mul, response.div)
+        print "\n\nServer Calculated: ", response.sum, response.sub, response.mul, response.div
         return response.sum, response.sub, response.mul, response.div
 
 if __name__ == '__main__':

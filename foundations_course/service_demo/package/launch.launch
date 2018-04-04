@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+
+<launch>
+
+	<node pkg="service_demo" type="client_demo.py" output="screen" name ="client_node" required="true"/>
+
+	<node pkg="service_demo" type="server_demo.py"  output="screen" name ="server_node"  required="true"/>
+</launch>
+

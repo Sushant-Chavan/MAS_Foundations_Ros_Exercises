@@ -33,6 +33,6 @@ if __name__=='__main__':
 
         result = n.num_client(num1, num2)
 
-        print(result)
+        print "\nClient Received\n", result
 
         rospy.spin()
