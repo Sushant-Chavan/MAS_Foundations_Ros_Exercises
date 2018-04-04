@@ -9,19 +9,17 @@ import numpy as np
 
 from turtlesim.msg import Pose
 from geometry_msgs.msg import Twist
+from service_demo.srv import turtle_control
 
 class PoseController:
-
-
-
 	def __init__(self):
 		self.eps_linear = 0.1
 		self.eps_angular = 0.01
 		# Initialize the node
 		rospy.init_node(NODE)
 
-		# Create publisher
-		self.target_vel_pub = rospy.Publisher("turtle1/cmd_vel", Twist, queue_size = 10)
+		#Display in the console the message
+		rospy.loginfo("Server initiated")
 
 		# Create current and target pose
 		self.current_pose = Pose()
@@ -32,9 +30,8 @@ class PoseController:
 
 		# Create subscriber for pose from turtle
 		self.current_pose_sub = rospy.Subscriber("turtle1/pose", Pose, self.current_pose_callback)
-
-		# Create subscriber for pose from keyboard
-		self.target_pose_sub = rospy.Subscriber("turtle_controller/pose", Pose, self.target_pose_callback)
+		
+		self.turtle_server = rospy.Service("positionTurtle", turtle_control, self.setPosition)
 
 		# Create publisher for velocity
 		self.target_vel_pub = rospy.Publisher("turtle1/cmd_vel", Twist, queue_size = 10)
@@ -44,10 +41,13 @@ class PoseController:
 		self.calculate_velocity()
 		pass
 
-	def target_pose_callback(self, msg):
-		self.target_pose = msg
+	def setPosition(self, msg):
+		print "Server SetPosition called with position: ", msg
+		self.target_pose = Pose()
+		self.target_pose.x = msg.x
+		self.target_pose.y = msg.y
 		self.calculate_velocity()
-		pass
+		return True
 
 	def calculate_velocity(self):
 		# Get dx, dy, dtheta
@@ -73,9 +73,6 @@ class PoseController:
 			else:
 				self.target_vel.linear.x = 0.3
 				self.target_vel.angular.z = 0.0
-
-
-		pass
 
 if __name__ == '__main__':
 	n = PoseController()

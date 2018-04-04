@@ -57,6 +57,7 @@ find_package(catkin REQUIRED COMPONENTS
  add_service_files(
    FILES
    two_ints.srv
+   turtle_control.srv
 #   Service1.srv
 #   Service2.srv
  )
