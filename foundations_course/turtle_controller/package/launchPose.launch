@@ -1,11 +1,8 @@
 <?xml version="1.0"?>
 
 <launch>
-
-	<node pkg="turtlesim" type="turtlesim_node" name ="turtlesim" required="true"/>
-
-	<node pkg="turtle_controller" type="pose_controller.py" output="screen" name ="pose_controller" required="true"/>
-
-	<node pkg="turtle_controller" type="pose_input.py"  output="screen" name ="pose_input"  required="true"/>
+    <node pkg="turtlesim" type="turtlesim_node" name ="turtlesim" required="true"/>
+    <node pkg="turtle_controller" type="pose_controller.py" output="screen" name ="pose_controller" required="true"/>
+    <node pkg="turtle_controller" type="pose_input.py"  output="screen" name ="pose_input"  required="true"/>
 </launch>
 

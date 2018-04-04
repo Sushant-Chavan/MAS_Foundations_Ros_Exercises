@@ -1,10 +1,7 @@
 <?xml version="1.0"?>
 
 <launch>
-
-	<node pkg="turtlesim" type="turtlesim_node" name ="turtlesim" required="true"/>
-
-	<node pkg="turtle_controller" type="velocity_controller.py" output="screen" name ="velocity_controller" required="true"/>
-
-	<node pkg="turtle_controller" type="velocity_client.py"  output="screen" name ="velocity_client"  required="true"/>
+    <node pkg="turtlesim" type="turtlesim_node" name ="turtlesim" required="true"/>
+    <node pkg="turtle_controller" type="velocity_controller.py" output="screen" name ="velocity_controller" required="true"/>
+    <node pkg="turtle_controller" type="velocity_client.py"  output="screen" name ="velocity_client"  required="true"/>
 </launch>
