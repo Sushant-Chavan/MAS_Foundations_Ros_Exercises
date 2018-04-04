@@ -29,23 +29,24 @@ class PoseClient:
 
 	def getPositions(self):
 		newPositions = []
+		xvals = [2.0, 3.5, 7.0, 5.0, 1.0]
+		yvals = [7.0, 3.5, 9.0, 2.0, 0.0]
 		for i in range(0,5):
 			newPos = Pose()
-			newPos.x = 1.5 * i
-			newPos.y = i
+			newPos.x = xvals[i]
+			newPos.y = yvals[i]
 			newPositions.append(newPos)
 		return newPositions
 
 	def requestPositioning(self):
-		rate = rospy.Rate(.1)
-		for i in range(0,5):
+		for i in range(0,5): 
 			position = self.requestPositions[i]
+			print "\nClient Requesting position: ", position
 			success = self.turtle_client(position.x, position.y)
 			if success:
 				print "Position set successfully"
 			else:
 				print "Setting Position failed"
-			rate.sleep()
 
 if __name__ == '__main__':
 	n = PoseClient()
