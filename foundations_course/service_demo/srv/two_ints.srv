@@ -1,0 +1,7 @@
+int64 num1
+int64 num2
+---
+int64 sum
+int64 mul
+int64 sub
+float64 div
