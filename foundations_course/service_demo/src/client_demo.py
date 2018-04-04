@@ -20,6 +20,7 @@ class client:
 if __name__=='__main__':
     n = client()
 
+    rate = rospy.Rate(1)
     while not rospy.is_shutdown():
         try:
             num1 = int(raw_input("Enter Num1 : "))
@@ -29,10 +30,11 @@ if __name__=='__main__':
         try:
             num2 = int(raw_input("Enter Num2 : "))
         except ValueError:
-            num2 = 0.0
+            num2 = 0
 
         result = n.num_client(num1, num2)
 
         print "\nClient Received\n", result
 
-        rospy.spin()
+        #rospy.spin()
+        rate.sleep()
